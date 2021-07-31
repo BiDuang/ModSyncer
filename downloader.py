@@ -14,7 +14,7 @@ def downloader(mode: str):
         add = "119.188.248.230"
         port = 21
         account = "fser"
-        password = "WGKSfj3zpNXkGJmz"
+        password = "****"
         notice = "Ice Updater"
     elif mode == 1:
         add = "irain.cc"
