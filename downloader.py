@@ -20,7 +20,7 @@ def downloader(mode: str):
         add = "irain.cc"
         port = 2121
         account = "modsync"
-        password = "modsync"
+        password = "****"
         notice = "ModSyncer"
 
     try:
