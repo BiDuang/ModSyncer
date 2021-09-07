@@ -14,13 +14,13 @@ def downloader(mode: str):
         add = "119.188.248.230"
         port = 21
         account = "fser"
-        password = "****"
+        password = "WGKSfj3zpNXkGJmz"
         notice = "Ice Updater"
     elif mode == 1:
         add = "irain.cc"
         port = 2121
         account = "modsync"
-        password = "****"
+        password = "modsync"
         notice = "ModSyncer"
 
     try:

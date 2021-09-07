@@ -8,6 +8,10 @@ initdict = {
     'sync_mode': 1
 }
 
+f = open('settings.json', 'w')
+json.dump(initdict, f)
+f.close()
+
 clear = path_space = ''
 if platform.system() == 'Windows':
     clear = 'cls'
@@ -30,7 +34,7 @@ def guide(usr: str):
     print("========== 如果您选择了跳过向导，ModSyncer将采用推荐设置完成初始化 ==========")
     inp = input()
     os.system(clear)
-    if inp.lower() == 'c':
+    if inp.lower() != 'c':
         print("[ModSyncer Guide] 首先，让我们来选择使用何种同步模式：")
         print("[1] 由同步服务器来决定 [推荐]")
         print("[2] 每次同步都删除文件夹下所有文件")
