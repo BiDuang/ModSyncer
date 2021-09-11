@@ -39,7 +39,6 @@ settings = json.load(f)
 
 print(f"================= [MobSyncer V{ver}] ===================")
 print("======Powered By FriendShip Code Studio | 2021 ========")
-print(f"欢迎！ {getpass.getuser()}")
 time.sleep(1)
 
 updater(ver, exedir, settings['auto_update'])
@@ -49,11 +48,7 @@ usrinp = input("[ModSyncer] 输入[C]进入同步模式，输入[S]进入偏好�
 if usrinp == 'C' or usrinp == 'c':
 
     address = input("请输入同步FTP服务器地址(不含端口):\n")
-    try:
-        port = int(input("请输入服务器端口:\n"))
-    except TypeError:
-        print("非法端口，请重新输入")
-        exit(0)
+    port = int(input("请输入服务器端口:\n"))
     user = input("请输入用户名:\n")
     password = input("请输入密码:\n")
     os.system(clear)
