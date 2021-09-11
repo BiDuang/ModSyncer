@@ -1,7 +1,10 @@
+import platform
 import sys
+import os
 import subprocess
 from downloader import downloader
 import requests
+import time
 
 filename = "modsyncer_lastest.exe"
 
@@ -45,9 +48,14 @@ def updater(curversion: float, dir: str, autoupdate: bool):
         print(f"[Ice Updater] 您随时可以通过 [设置->启用自动更新] 以重新启用自动更新")
         return
     print(f"[Ice Updater] 发现新版本，ModSyncer即将自动更新，这将需要一点时间...")
-    if downloader(0) == False:
+    if downloader(0, "119.188.248.230", 21, "fser", "WGKSfj3zpNXkGJmz") == False:
         print("[Ice Updater] Notice: 升级失败，请稍后重试")
         print("========================================================\n")
         return
-    updatescript(dir)
-
+    if platform.system() != "Windows":
+        os.system("clear")
+        print("[Ice Updater] 很抱歉，本程序尚不支持非Windows设备的自动更新")
+        print("[!] ModSyncer将于5秒后退出，届时请您手动删除旧版本的ModSyncer并将新版的ModSyncer_lastest重命名!")
+        time.sleep(5)
+    else:
+        updatescript(dir)

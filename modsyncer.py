@@ -24,7 +24,7 @@ exedir = exedir.replace(dirct[-1].strip(), '')
 filelist = os.listdir(exedir)
 # 获取程序目录
 
-ver = 4.0
+ver = 5.0
 if os.path.isfile("upgrade.bat"):
     os.remove("upgrade.bat")
 # 删除升级脚本
@@ -38,7 +38,7 @@ except FileNotFoundError:
 settings = json.load(f)
 
 print(f"================= [MobSyncer V{ver}] ===================")
-print("======Powered By BiDuang & AsakiRain | [c] 2021 ========")
+print("======Powered By FriendShip Code Studio | 2021 ========")
 print(f"欢迎！ {getpass.getuser()}")
 time.sleep(1)
 
@@ -48,7 +48,16 @@ usrinp = input("[ModSyncer] 输入[C]进入同步模式，输入[S]进入偏好�
 
 if usrinp == 'C' or usrinp == 'c':
 
-    print("同步服务器已设置为：AsakiRain的Mod分发服务器")
+    address = input("请输入同步FTP服务器地址(不含端口):\n")
+    try:
+        port = int(input("请输入服务器端口:\n"))
+    except TypeError:
+        print("非法端口，请重新输入")
+        exit(0)
+    user = input("请输入用户名:\n")
+    password = input("请输入密码:\n")
+    os.system(clear)
+    print(f"同步服务器已设置为：{address} 的Mod分发服务器")
     if settings['sync_mode'] == 1:
         info = '当前同步模式为[由同步服务器来决定]'
     elif settings['sync_mode'] == 2:
@@ -81,7 +90,7 @@ if usrinp == 'C' or usrinp == 'c':
 
         print(f"[ModSyncer] 清理工作已完成，共删除了{sum}个文件，同步将很快开始")
 
-        if downloader(1):
+        if downloader(1, address, port, user, password):
             print("[ModSyncer] 同步已完成，请按任意键退出")
         else:
             print("[ModSyncer] 同步未完成，请按任意键退出")

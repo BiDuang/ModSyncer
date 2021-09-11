@@ -6,21 +6,13 @@ from ftplib import FTP
 import time
 
 
-def downloader(mode: str):
+def downloader(mode: str, add: str, port: int, account: str, password: str):
     ftp = FTP()
     ftp.set_debuglevel(0)
 
     if mode == 0:
-        add = "119.188.248.230"
-        port = 21
-        account = "fser"
-        password = "WGKSfj3zpNXkGJmz"
         notice = "Ice Updater"
     elif mode == 1:
-        add = "irain.cc"
-        port = 2121
-        account = "modsync"
-        password = "modsync"
         notice = "ModSyncer"
 
     try:
